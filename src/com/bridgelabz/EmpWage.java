@@ -11,6 +11,17 @@ class Employee {
 	int totalWorkingDays;
 	int salary;
 	int totalSalary;
+	int numberOfWorkingDays;
+	String company;
+
+	public Employee(int workingHrs, String company, int numberOfWorkingDays) {
+		for (int i = 0; i < numberOfWorkingDays; i++) {
+			salary = workingHrs * WAGE_PER_HR;
+			totalSalary += salary;
+		}
+		System.out.println("Total salary for " + numberOfWorkingDays + " days of " + company + " Company is : "
+				+ totalSalary + "rs");
+	}
 
 	/**
 	 * Employee wage computation using switch case
@@ -36,6 +47,8 @@ class Employee {
 			salary = workingHrs * WAGE_PER_HR;
 			totalSalary += salary;
 		}
+		System.out.println("Totalsalary for " + numberOfWorkingDays + " days of " + company + " Company is : "
+				+ totalSalary + "rs");
 	}
 }
 
@@ -45,9 +58,9 @@ public class EmpWage {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage");
-		Employee employee = new Employee();
-		employee.employeeWageComputation();
-		System.out.println("Totalsalary : " + employee.totalSalary + "rs");
+		Employee employee1 = new Employee(10, "Dmart", 30);
+		Employee employee2 = new Employee(15, "BigC", 25);
+		Employee employee3 = new Employee(20, "Bata", 20);
 
 	}
 }
