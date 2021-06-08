@@ -3,11 +3,15 @@ package com.bridgelabz;
 class Employee {
 	static final int IS_FULL_TIME_PRESENT = 1;
 	static final int IS_PART_TIME_PRESENT = 2;
+	static final int TOTAL_WORKING_HRS = 100;
+	static final int TOTAL_WORKING_DAYS = 20;
 	static final int WAGE_PER_HR = 20;
 	int workingHrs;
+	int totalWorkingHrs;
+	int totalWorkingDays;
 	int salary;
 	int totalSalary;
-	// int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+	int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
 	/**
 	 * This is employee Attendance method to check whether He is full time present
@@ -39,7 +43,7 @@ class Employee {
 	 * Employee wage computation using switch case
 	 */
 	public void empWageCaseMethod() {
-		for (int i = 0; i < 20; i++) {
+		while (totalWorkingHrs < TOTAL_WORKING_HRS && totalWorkingDays < WAGE_PER_HR) {
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (empCheck) {
 			case IS_FULL_TIME_PRESENT:
@@ -54,6 +58,8 @@ class Employee {
 				System.out.println("Employee is absent");
 				workingHrs = 0;
 			}
+			totalWorkingHrs +=workingHrs;
+			totalWorkingDays++;
 			salary = workingHrs * WAGE_PER_HR;
 			totalSalary += salary;
 		}
@@ -69,5 +75,6 @@ public class EmpWage {
 		Employee employee = new Employee();
 		employee.empWageCaseMethod();
 		System.out.println("salary : " + employee.salary + "rs\n" + "Totalsalary : " + employee.totalSalary + "rs");
+		
 	}
 }
