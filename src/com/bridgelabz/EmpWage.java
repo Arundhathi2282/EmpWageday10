@@ -19,7 +19,7 @@ class Employee {
 			salary = workingHrs * WAGE_PER_HR;
 			totalSalary += salary;
 		}
-		System.out.println("Total salary for " + numberOfWorkingDays + " days of " + company + " Company is : "
+		System.out.println("Total salary for " + numberOfWorkingDays + " working days in " + company + " is : "
 				+ totalSalary + "rs");
 	}
 
