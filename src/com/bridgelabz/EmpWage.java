@@ -14,13 +14,13 @@ class Employee {
 	 */
 	public void employeeAttendance() {
 		if (empCheck == IS_FULL_TIME_PRESENT) {
-			System.out.println("Full Time Present");
+			System.out.println("Employee is full Time Present");
 			workingHrs = 8;
 		} else if (empCheck == IS_PART_TIME_PRESENT) {
-			System.out.println("Part Time present");
+			System.out.println("Employee is part Time present");
 			workingHrs = 4;
 		} else {
-			System.out.println("Absent");
+			System.out.println("Employee is absent");
 			workingHrs = 0;
 		}
 	}
@@ -40,15 +40,15 @@ class Employee {
 	public void empWageCaseMethod() {
 		switch (empCheck) {
 		case IS_FULL_TIME_PRESENT:
-			System.out.println("Full Time Present");
+			System.out.println("Employee is full Time Present");
 			workingHrs = 8;
 			break;
 		case IS_PART_TIME_PRESENT:
-			System.out.println("Part Time present");
+			System.out.println("Employee is part Time present");
 			workingHrs = 4;
 			break;
 		default:
-			System.out.println("Absent");
+			System.out.println("Employee is absent");
 			workingHrs = 0;
 		}
 		salary = workingHrs * WAGE_PER_HR;
