@@ -33,6 +33,26 @@ class Employee {
 		salary = workingHrs * WAGE_PER_HR;
 		return salary;
 	}
+
+	/**
+	 * Employee wage computation using switch case
+	 */
+	public void empWageCaseMethod() {
+		switch (empCheck) {
+		case IS_FULL_TIME_PRESENT:
+			System.out.println("Full Time Present");
+			workingHrs = 8;
+			break;
+		case IS_PART_TIME_PRESENT:
+			System.out.println("Part Time present");
+			workingHrs = 4;
+			break;
+		default:
+			System.out.println("Absent");
+			workingHrs = 0;
+		}
+		salary = workingHrs * WAGE_PER_HR;
+	}
 }
 
 public class EmpWage {
@@ -42,7 +62,7 @@ public class EmpWage {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage");
 		Employee employee = new Employee();
-		employee.empSalary();
+		employee.empWageCaseMethod();
 		System.out.println("salary : " + employee.salary + "rs");
 	}
 }
