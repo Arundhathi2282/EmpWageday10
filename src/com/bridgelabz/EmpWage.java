@@ -6,7 +6,8 @@ class Employee {
 	static final int WAGE_PER_HR = 20;
 	int workingHrs;
 	int salary;
-	int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+	int totalSalary;
+	// int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
 	/**
 	 * This is employee Attendance method to check whether He is full time present
@@ -38,20 +39,24 @@ class Employee {
 	 * Employee wage computation using switch case
 	 */
 	public void empWageCaseMethod() {
-		switch (empCheck) {
-		case IS_FULL_TIME_PRESENT:
-			System.out.println("Employee is full Time Present");
-			workingHrs = 8;
-			break;
-		case IS_PART_TIME_PRESENT:
-			System.out.println("Employee is part Time present");
-			workingHrs = 4;
-			break;
-		default:
-			System.out.println("Employee is absent");
-			workingHrs = 0;
+		for (int i = 0; i < 20; i++) {
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			switch (empCheck) {
+			case IS_FULL_TIME_PRESENT:
+				System.out.println("Employee is full Time Present");
+				workingHrs = 8;
+				break;
+			case IS_PART_TIME_PRESENT:
+				System.out.println("Employee is part Time present");
+				workingHrs = 4;
+				break;
+			default:
+				System.out.println("Employee is absent");
+				workingHrs = 0;
+			}
+			salary = workingHrs * WAGE_PER_HR;
+			totalSalary += salary;
 		}
-		salary = workingHrs * WAGE_PER_HR;
 	}
 }
 
@@ -63,6 +68,6 @@ public class EmpWage {
 		System.out.println("Welcome to Employee Wage");
 		Employee employee = new Employee();
 		employee.empWageCaseMethod();
-		System.out.println("salary : " + employee.salary + "rs");
+		System.out.println("salary : " + employee.salary + "rs\n" + "Totalsalary : " + employee.totalSalary + "rs");
 	}
 }
