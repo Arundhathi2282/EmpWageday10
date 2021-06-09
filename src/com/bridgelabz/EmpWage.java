@@ -3,32 +3,27 @@ package com.bridgelabz;
 class Employee {
 	static final int IS_FULL_TIME_PRESENT = 1;
 	static final int IS_PART_TIME_PRESENT = 2;
-	static final int TOTAL_WORKING_HRS = 100;
-	static final int TOTAL_WORKING_DAYS = 20;
-	static final int WAGE_PER_HR = 20;
-	int workingHrs;
-	int totalWorkingHrs;
-	int totalWorkingDays;
-	int salary;
+	private static int wagePerHr;
+	private static int numberOfWorkingHrs;
+	private static int numberOfWorkingDays;
+	private static String company;
 	int totalSalary;
-	int numberOfWorkingDays;
-	String company;
 
-	public Employee(int workingHrs, String company, int numberOfWorkingDays) {
-		for (int i = 0; i < numberOfWorkingDays; i++) {
-			salary = workingHrs * WAGE_PER_HR;
-			totalSalary += salary;
-		}
-		System.out.println("Total salary for " + numberOfWorkingDays + " working days in " + company + " is : "
-				+ totalSalary + "rs");
+	public Employee(int wagePerHr, String company, int numberOfWorkingDays,int numberOfWorkingHrs) {
+		this.company = company;
+		this.wagePerHr = wagePerHr;
+		this.numberOfWorkingHrs = numberOfWorkingHrs;
+		this.numberOfWorkingDays = numberOfWorkingDays;
 	}
 
 	/**
 	 * Employee wage computation using switch case
 	 */
 	public void employeeWageComputation() {
-		while (totalWorkingHrs < TOTAL_WORKING_HRS && totalWorkingDays < WAGE_PER_HR) {
+		int workingHrs = 0,totalWorkingHrs=0,totalWorkingDays=0;
+		while (totalWorkingHrs < numberOfWorkingHrs && totalWorkingDays < numberOfWorkingDays) {
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			totalWorkingDays++;
 			switch (empCheck) {
 			case IS_FULL_TIME_PRESENT:
 				System.out.println("Employee is full Time Present");
@@ -43,9 +38,7 @@ class Employee {
 				workingHrs = 0;
 			}
 			totalWorkingHrs += workingHrs;
-			totalWorkingDays++;
-			salary = workingHrs * WAGE_PER_HR;
-			totalSalary += salary;
+			totalSalary =  totalWorkingHrs * wagePerHr;
 		}
 		System.out.println("Totalsalary for " + numberOfWorkingDays + " days of " + company + " Company is : "
 				+ totalSalary + "rs");
@@ -58,9 +51,12 @@ public class EmpWage {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage");
-		Employee employee1 = new Employee(10, "Dmart", 30);
-		Employee employee2 = new Employee(15, "BigC", 25);
-		Employee employee3 = new Employee(20, "Bata", 20);
+		Employee dMart = new Employee(20,"Dmart", 30,100);
+		dMart.employeeWageComputation();
+		Employee bigC = new Employee(15, "BigC", 25,80);
+		bigC.employeeWageComputation();
+		Employee bata = new Employee(20, "Bata", 20,90);
+		bata.employeeWageComputation();
 
 	}
 }
